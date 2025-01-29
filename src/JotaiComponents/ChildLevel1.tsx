@@ -5,7 +5,7 @@ import GrandChildBLevel2 from './GrandChildBLevel2';
 import {readOnlyCountAtoms} from './store';
 
 const ChildLevel1 = () => {
-  const {totalCount} = useAtomValue(readOnlyCountAtoms);
+  const totalCount = useAtomValue(readOnlyCountAtoms);
 
   return (
     <div className="child-level-1">

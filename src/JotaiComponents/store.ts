@@ -3,7 +3,7 @@ import {atom} from 'jotai';
 export const countAAtom = atom(0);
 export const countBAtom = atom(0);
 
-export const readOnlyCountAtoms = atom(get => {
+export const totalCountAtom = atom(get => {
   const countA = get(countAAtom);
   const countB = get(countBAtom);
   const totalCount = countA + countB;
@@ -14,6 +14,6 @@ export const readOnlyCountAtoms = atom(get => {
 export const combinedCountAtom = atom(get => {
   const countA = get(countAAtom);
   const countB = get(countBAtom);
-  const totalCount = readOnlyCountAtoms;
+  const totalCount = totalCountAtom;
   return {countA, countB, totalCount};
 });

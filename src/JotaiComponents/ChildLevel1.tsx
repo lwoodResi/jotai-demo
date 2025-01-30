@@ -2,10 +2,10 @@ import {useAtomValue} from 'jotai';
 import GrandChildALevel2 from './GrandChildALevel2';
 import './styles.css';
 import GrandChildBLevel2 from './GrandChildBLevel2';
-import {readOnlyCountAtoms} from './store';
+import {totalCountAtom} from './store';
 
 const ChildLevel1 = () => {
-  const totalCount = useAtomValue(readOnlyCountAtoms);
+  const totalCount = useAtomValue(totalCountAtom);
 
   return (
     <div className="child-level-1">

@@ -24,11 +24,13 @@ function App() {
   return (
     <div>
       <nav className="nav">
-        <button onClick={() => setRoute('jotaiPage')}>Page A - Jotai</button>
+        <button onClick={() => setRoute('jotaiPage')}>Jotai - Basic</button>
         <button onClick={() => setRoute('jotaiHookPage')}>
-          Hook Page A - Jotai
+          Jotai with Hook composition
         </button>
-        <button onClick={() => setRoute('reactPage')}>React Page A</button>
+        <button onClick={() => setRoute('reactPage')}>
+          React with useContext
+        </button>
       </nav>
       <div className="app"></div>
       {route === 'jotaiPage' && (

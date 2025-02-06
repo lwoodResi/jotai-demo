@@ -4,7 +4,8 @@ const DisplayBCount = () => {
   const {countB} = useCount();
   return (
     <div>
-      <p className="display">countB: {countB} </p>
+      <h3>Always Display Hook Count B:</h3>
+      <p className="display">Hook CountB: {countB} </p>
     </div>
   );
 };

@@ -1,14 +1,16 @@
 import * as React from 'react';
 import './App.css';
 import PageA from './JotaiComponents/PageA';
-import DisplayACountA from './JotaiComponents/DisplayACount';
+import DisplayACount from './JotaiComponents/DisplayACount';
 import DisplayHookCountA from './HookJotaiComponents/DisplayACount';
+import DisplayHookCountB from './HookJotaiComponents/DisplayBCount';
 import useGlobalStore from './useGlobalStore';
 import HookJotaiPageA from './HookJotaiComponents/HookJotaiPageA';
 import {CountContext} from './ReactComponents/store';
 import ReactPageA from './ReactComponents/ReactPageA';
 import ReactDisplayA from './ReactComponents/ReactDisplayA';
 import ReactDisplayB from './ReactComponents/ReactDisplayB';
+import DisplayBCount from './JotaiComponents/DisplayBCount';
 
 function App() {
   const {route, setRoute} = useGlobalStore();
@@ -22,22 +24,43 @@ function App() {
   return (
     <div>
       <nav className="nav">
-        <button onClick={() => setRoute('pageA')}>Page A - Jotai</button>
-        <button onClick={() => setRoute('hookPageA')}>
+        <button onClick={() => setRoute('jotaiPage')}>Page A - Jotai</button>
+        <button onClick={() => setRoute('jotaiHookPage')}>
           Hook Page A - Jotai
         </button>
-        <button onClick={() => setRoute('reactPageA')}>React Page A</button>
+        <button onClick={() => setRoute('reactPage')}>React Page A</button>
       </nav>
-      {(route === 'pageA' || route === 'hookPageA') && (
-        <div className="app">
+      <div className="app"></div>
+      {route === 'jotaiPage' && (
+        <>
           <div className="page">
-            {route === 'pageA' && <PageA />}
-            {route === 'hookPageA' && <HookJotaiPageA />}
+            <PageA />
           </div>
-          <DisplayACountA />
-          {/* <DisplayA2CountA /> */}
+          <DisplayACount />
+          <DisplayBCount />
+        </>
+      )}
+      {route === 'jotaiHookPage' && (
+        <>
+          <div className="page">
+            <HookJotaiPageA />
+          </div>
           <DisplayHookCountA />
-        </div>
+          <DisplayHookCountB />
+        </>
+      )}
+      {route === 'reactPage' && (
+        <>
+          <CountContext.Provider value={{countA, countB, setCountA, setCountB}}>
+            <div className="app">
+              <div className="reactPageA">
+                <ReactPageA />
+              </div>
+            </div>
+            <ReactDisplayA />
+            <ReactDisplayB />
+          </CountContext.Provider>
+        </>
       )}
       {route === 'reactPageA' && (
         // NOTE: must wrap with a provider and pass values and setters, or setup a reducer to use

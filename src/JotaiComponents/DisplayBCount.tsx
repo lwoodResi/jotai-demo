@@ -5,7 +5,8 @@ const DisplayBCount = () => {
   const countB = useAtomValue(countBAtom);
   return (
     <div>
-      <p className="display">countB: {countB} </p>
+      <h3>Always Displayed Count B:</h3>
+      <p className="display">CountB: {countB} </p>
     </div>
   );
 };

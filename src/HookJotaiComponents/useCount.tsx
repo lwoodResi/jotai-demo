@@ -1,6 +1,6 @@
 import {atom, useAtom, useAtomValue} from 'jotai';
 
-// NOTE: I'm calling this safe because we are not exposing the atoms directly to the components.
+// NOTE: We are not exposing the atoms directly to the components.
 // Instead, we can compose them further and export through a hook, giving access only to the
 // getters and setters we want.
 const countAAtom = atom(0);
